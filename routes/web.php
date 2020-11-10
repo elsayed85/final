@@ -15,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    Artisan::call('storage:link');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+
+    Artisan::call('migrate:fresh');
+    Artisan::call('db:seed');
     return view('welcome');
 });
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');

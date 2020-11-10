@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Auth\RegisterRequest;
 use App\Models\Users\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
 class RegisterController extends Controller
 {
     public function register(RegisterRequest $request)
     {
-        $user = User::create($request->only(['name', 'email', 'password', 'geneder', 'birthdate', 'phone']));
+        $user = User::create($request->only(['name', 'email', 'geneder', 'birthdate', 'phone'] + ['password' => Hash::make($request->password)]));
 
         if ($request->has('avatar')) {
             $avatar = $request->file('avatar');

@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
-        if ($request->acceptsJson()) {
+        if ($request->acceptsJson() && $request->wantsJson()) {
             if ($e instanceof TypeError) {
                 return response()->json([
                     'success' =>  false,
