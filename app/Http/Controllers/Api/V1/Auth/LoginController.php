@@ -15,7 +15,6 @@ class LoginController extends Controller
             return ResponseBuilder::success([
                 'token' => auth()->user()->createToken('mobile')->plainTextToken,
                 'token_type' => "Bearer"
-
             ]);
         }
         return ResponseBuilder::error(401, ['name' => "login"]);

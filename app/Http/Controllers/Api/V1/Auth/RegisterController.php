@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     public function register(RegisterRequest $request)
     {
-        $user = User::create($request->only(['name', 'email', 'geneder', 'birthdate', 'phone'] + ['password' => Hash::make($request->password)]));
+        $user = User::create(collect($request->only(['name', 'email', 'geneder', 'birthdate', 'phone']))->push(['password' => Hash::make($request->password)]));
 
         if ($request->has('avatar')) {
             $avatar = $request->file('avatar');
