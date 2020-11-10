@@ -15,6 +15,7 @@ class RegisterController extends Controller
     {
         $data = collect($request->all())->put('password', Hash::make($request->password))->except('avatar')->toArray();
 
+        
         $user = User::create($data);
 
         if ($request->has('avatar')) {
