@@ -22,8 +22,23 @@ class Car extends Model
         'avaiable' => 'boolean',
     ];
 
+    public function scopeAvaiable($query)
+    {
+        return $query->where('avaiable', true);
+    }
+
+    public function scopeNotAvaiable($query)
+    {
+        return $query->where('avaiable', false);
+    }
+
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function location()
+    {
+        return $this->hasOne(Location::class);
     }
 }
