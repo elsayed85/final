@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Cars\Brand;
+use App\Models\Cars\Car;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -26,10 +28,12 @@ class DatabaseSeeder extends Seeder
             DB::statement("SET foreign_key_checks=1");
 
             $this->call([
-                RolesSeeder::class
+                RolesSeeder::class,
             ]);
 
             factory(User::class , 5)->create();
+            factory(Brand::class , 5)->create();
+            factory(Car::class , 70)->create();
         }
     }
 }

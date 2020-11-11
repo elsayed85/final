@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Brand::class, function (Faker $faker) {
     return [
-        //
+        "name" => "brand " . rand(111111, 9999999)
     ];
 });
