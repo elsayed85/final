@@ -14,10 +14,8 @@ class RolesSeeder extends Seeder
     {
         collect([
             ['name' => "client"]
-        ])->map(function($role){
+        ])->map(function ($role) {
             Role::create(['name' => $role['name']]);
         });
-
-
     }
 }
