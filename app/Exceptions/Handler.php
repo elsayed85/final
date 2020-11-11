@@ -62,6 +62,7 @@ class Handler extends ExceptionHandler
                     'data' =>  null
                 ], 500);
             } else {
+                dd($e);
                 return ExceptionHandlerHelper::render($request, $e);
             }
         }
