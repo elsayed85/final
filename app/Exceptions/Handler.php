@@ -50,6 +50,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
+    
     public function render($request, Throwable $e)
     {
         if ($request->acceptsJson() && $request->wantsJson()) {
