@@ -63,7 +63,6 @@ class Handler extends ExceptionHandler
                     'data' =>  null
                 ], 500);
             } else {
-                dd($e->getTraceAsString() , $e->getCode());
                 return ExceptionHandlerHelper::render($request, $e);
             }
         }
