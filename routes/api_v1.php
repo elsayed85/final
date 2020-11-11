@@ -15,8 +15,8 @@ Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    // user
+Route::group(['middleware' => ['auth:sanctum', 'client']], function () {
+
     Route::group(['prefix' => 'user', 'namespace' => "User"], function () {
         Route::post('logout', [LogoutController::class, "__invoke"]);
         Route::post('update-avatar', [AvatarController::class, "__invoke"]);
