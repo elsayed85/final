@@ -12,6 +12,6 @@ class CarsController extends Controller
 {
     public function index()
     {
-        return ResponseBuilder::success(new CarsCollection(Car::Avaiable()->get()));
+        return ResponseBuilder::success(CarsCollection::collection(Car::Avaiable()->get()));
     }
 }
