@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
 class LogoutController extends Controller
 {
