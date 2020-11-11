@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
+use App\Http\Controllers\Api\V1\Auth\User\LogoutController;
 use App\Http\Controllers\Api\V1\User\AvatarController;
 use App\Http\Controllers\Api\V1\User\BansController;
 use App\Http\Controllers\Api\V1\User\StatusController;
@@ -18,7 +19,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // user
     Route::group(['prefix' => 'user', 'namespace' => "User"], function () {
-        Route::post('/update-avatar', [AvatarController::class, "__invoke"]);
+        Route::post('logout', [LogoutController::class, "__invoke"]);
+        Route::post('update-avatar', [AvatarController::class, "__invoke"]);
 
         Route::group(['prefix' => 'status', 'as' => "status"], function () {
             Route::get('all', [StatusController::class, "all"])->name('all');

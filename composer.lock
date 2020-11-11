@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4662c950553a2d9a4c0666a9aa580e62",
+    "content-hash": "00ea1757cd1b6b2cde866431a5db7d59",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1115,6 +1115,63 @@
                 "source": "https://github.com/joedixon/laravel-translation/tree/master"
             },
             "time": "2020-04-13T20:06:24+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/facebook",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/facebook.git",
+                "reference": "f58e0d780bc695897c0b66bd1e66ff6005a718b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/facebook/zipball/f58e0d780bc695897c0b66bd1e66ff6005a718b9",
+                "reference": "f58e0d780bc695897c0b66bd1e66ff6005a718b9",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2 || ^7.0",
+                "illuminate/notifications": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.5 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Facebook\\FacebookServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Facebook\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Syed Irfaq R.",
+                    "email": "syed@lukonet.com",
+                    "homepage": "https://lukonet.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Facebook Notifications Channel for Laravel",
+            "homepage": "https://github.com/laravel-notification-channels/facebook",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/facebook/issues",
+                "source": "https://github.com/laravel-notification-channels/facebook/tree/master"
+            },
+            "time": "2020-09-07T19:38:14+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3062,6 +3119,76 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "rinvex/universities",
+            "version": "v4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/universities.git",
+                "reference": "7fdebe0d05a0a255948d8f68097b6094766ad381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/universities/zipball/7fdebe0d05a0a255948d8f68097b6094766ad381",
+                "reference": "7fdebe0d05a0a255948d8f68097b6094766ad381",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.27.0",
+                "phpunit/phpunit": "^9.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Rinvex\\University\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous PHP Community",
+                    "homepage": "https://github.com/rinvex/universities/contributors"
+                }
+            ],
+            "description": "Rinvex Universities is a simple and lightweight package for retrieving university details with flexibility. A whole bunch of data including name, country, state, email, website, telephone, address, and much more attributes for the 17k+ known universities worldwide at your fingertips.",
+            "homepage": "https://rinvex.com",
+            "keywords": [
+                "Flexible",
+                "Simple",
+                "collage",
+                "degree",
+                "department",
+                "division",
+                "education",
+                "instituion",
+                "language",
+                "lightweight",
+                "research",
+                "rinvex",
+                "university"
+            ],
+            "time": "2020-10-24T21:57:25+00:00"
         },
         {
             "name": "spatie/image",
@@ -8297,5 +8424,5 @@
         "php": "^7.2.5|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Users\User;
+use App\Notifications\TestNotification;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +23,10 @@ Route::get('/', function () {
     Artisan::call('migrate:fresh');
     Artisan::call('db:seed');
     return view('welcome');
+});
+
+Route::get('/test', function () {
+    User::find(1)->notify(new TestNotification());
 });
 
 
