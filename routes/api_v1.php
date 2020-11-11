@@ -16,7 +16,7 @@ Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
 
-Route::group(['middleware' => ['auth:sanctum', 'client']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
     Route::get("cars", [CarsController::class, "index"])->name("cars.index");
 
     Route::group(['prefix' => 'user', 'namespace' => "User"], function () {
