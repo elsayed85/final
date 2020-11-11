@@ -15,9 +15,9 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('brand_id')->nullable();
+            $table->unsignedBigInteger('brand_id')->nullable();
             $table->foreign('brand_id')->on("car_brands")->references('id')->onDelete('set null');
-            $table->integer('current_speed')->default(0);
+            $table->integer('current_speed')->nullable();
             $table->boolean('avaiable')->default(false);
             $table->timestamps();
         });

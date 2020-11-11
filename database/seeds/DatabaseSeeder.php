@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
             }
             DB::statement("SET foreign_key_checks=1");
 
+            $this->call([
+                RolesSeeder::class
+            ]);
 
             factory(User::class , 5)->create();
         }

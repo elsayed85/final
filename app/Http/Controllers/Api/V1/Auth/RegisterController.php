@@ -15,13 +15,15 @@ class RegisterController extends Controller
     {
         $data = collect($request->all())->put('password', Hash::make($request->password))->except('avatar')->toArray();
 
-        
+
         $user = User::create($data);
 
         if ($request->has('avatar')) {
             $avatar = $request->file('avatar');
             $user->addMedia($avatar)->usingFileName($avatar->getClientOriginalName())->usingName($avatar->getClientOriginalName())->toMediaCollection('avatar');
         }
+
+        $user->assignRole('client');
 
         return ResponseBuilder::success([
             'user' => $user,

@@ -11,10 +11,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements HasMedia, BannableContract, MustVerifyEmail
 {
-    use Notifiable, HasApiTokens, HasMediaTrait, Bannable, PhoneVerificationTrait;
+    use Notifiable, HasApiTokens, HasMediaTrait, Bannable, PhoneVerificationTrait , HasRoles;
 
     /**
      * The attributes that are mass assignable.
