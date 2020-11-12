@@ -15,7 +15,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements HasMedia, BannableContract, MustVerifyEmail
 {
-    use Notifiable, HasApiTokens, HasMediaTrait, Bannable, PhoneVerificationTrait , HasRoles;
+    use Notifiable, HasApiTokens, HasMediaTrait, Bannable, PhoneVerificationTrait, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -73,7 +73,7 @@ class User extends Authenticatable implements HasMedia, BannableContract, MustVe
 
     public function getAvatarAttribute()
     {
-        return $this->getFirstMedia("avatar")->getFullUrl();
+        return optional($this->getFirstMedia("avatar"))->getFullUrl();
     }
 
     public function scopeMale($query)
@@ -84,5 +84,15 @@ class User extends Authenticatable implements HasMedia, BannableContract, MustVe
     public function scopeFemale($query)
     {
         return $query->where('gender', 'f');
+    }
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
+    public function lastLocation()
+    {
+        return $this->locations()->latest()->last();
     }
 }

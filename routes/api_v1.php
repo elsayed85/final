@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
+use App\Http\Controllers\Api\V1\Brodcasting\MessageController;
 use App\Http\Controllers\Api\V1\Cars\CarsController;
 use App\Http\Controllers\Api\V1\User\AvatarController;
 use App\Http\Controllers\Api\V1\User\BansController;
@@ -14,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [RegisterController::class, "register"])->name('register');
 Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
-
+Route::get('test', [MessageController::class, "send"]);
 
 Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
 
     Route::get("cars", [CarsController::class, "index"])->name("cars.index");
 
     Route::group(['prefix' => 'user', 'namespace' => "User"], function () {
-        Route::post('logout', [LogoutController::class, "__invoke"]);
-        Route::post('update-avatar', [AvatarController::class, "__invoke"]);
+        Route::post('logout', [LogoutController::class, "__invoke"])->name('logout');
+        Route::post('update-avatar', [AvatarController::class, "__invoke"])->name('update_avatar');
 
         Route::group(['prefix' => 'status', 'as' => "status"], function () {
             Route::get('all', [StatusController::class, "all"])->name('all');

@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('ban:delete-expired')->everyMinute();
+        $schedule->command('websockets:clean')->daily();
     }
 
     /**

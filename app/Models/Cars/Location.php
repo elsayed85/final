@@ -13,6 +13,13 @@ class Location extends Model
      */
     protected $guarded = [];
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'car_locations';
+
     public function car()
     {
         return $this->belongsTo(Car::class);
