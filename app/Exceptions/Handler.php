@@ -55,7 +55,8 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
-        if ($request->acceptsJson() && $request->wantsJson()) {
+        if ($request->is("api/*")) {
+            $request->headers->set('Accept', 'application/json');
             if ($e instanceof TypeError || $e instanceof Error) {
                 return ExceptionHandlerHelper::render($request, new Exception($e->getMessage(), $e->getCode(), $e->getPrevious()));
             } else {

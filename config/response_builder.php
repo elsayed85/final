@@ -168,8 +168,8 @@ return [
             'handler' => \MarcinOrlowski\ResponseBuilder\ExceptionHandlers\ValidationExceptionHandler::class,
             'pri'     => -100,
             'config'  => [
-                //		        'api_code'  => ApiCodes::YOUR_API_CODE_FOR_VALIDATION_EXCEPTION,
-                //		        'http_code' => HttpResponse::HTTP_UNPROCESSABLE_ENTITY,
+                'api_code'  => 422,
+                'http_code' => 422,
             ],
         ],
 
@@ -208,23 +208,7 @@ return [
                     //			        'http_code' => HttpResponse::HTTP_INTERNAL_SERVER_ERROR,
                 ],
             ],
-        ],
-        TypeError::class => [
-            'handler' => ErrorHandler::class,
-            'pri'     => -100,
-            'config'  => [
-                //		        'api_code'  => ApiCodes::YOUR_API_CODE_FOR_VALIDATION_EXCEPTION,
-                //		        'http_code' => HttpResponse::HTTP_UNPROCESSABLE_ENTITY,
-            ],
-        ],
-        Error::class => [
-            'handler' => ErrorHandler::class,
-            'pri'     => -100,
-            'config'  => [
-                //		        'api_code'  => ApiCodes::YOUR_API_CODE_FOR_VALIDATION_EXCEPTION,
-                //		        'http_code' => HttpResponse::HTTP_UNPROCESSABLE_ENTITY,
-            ],
-        ],
+        ]
     ],
 
     /*
