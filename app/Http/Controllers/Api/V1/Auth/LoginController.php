@@ -22,6 +22,7 @@ class LoginController extends Controller
         throw ValidationException::withMessages(['email' => "email or password is wrong"]);
     }
 
+    
     protected function credentials()
     {
         if (is_numeric(request('email'))) {
