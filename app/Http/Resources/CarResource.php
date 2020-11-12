@@ -17,8 +17,7 @@ class CarResource extends JsonResource
         return [
             "brand" =>  optional($this->brand)->name,
             "current_speed" =>  $this->current_speed,
-            "avaiable" =>  $this->avaiable,
-            "extra" => $this->mergeWhen($this->avaiable, ['name' => "ahmed"])
+            "avaiable" =>  $this->avaiable
         ];
     }
 }

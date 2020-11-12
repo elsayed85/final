@@ -1,0 +1,2 @@
+[2020-11-12 17:56:00] local.DEBUG: MarcinOrlowski\ResponseBuilder\Converter: Converting Illuminate\Http\Resources\Json\AnonymousResourceCollection using App\Converters\ResourceCollectionConverter because: exact config match.  
+[2020-11-12 17:56:16] local.DEBUG: MarcinOrlowski\ResponseBuilder\Converter: Converting Illuminate\Http\Resources\Json\AnonymousResourceCollection using App\Converters\ResourceCollectionConverter because: exact config match.  

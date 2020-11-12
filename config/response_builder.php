@@ -1,5 +1,9 @@
 <?php
 
+use App\Converters\ResourceCollectionConverter;
+use App\Exceptions\ErrorHandler;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
 /**
@@ -31,7 +35,7 @@ return [
     'map'               => [
         Response::HTTP_NOT_FOUND => 'errors.not_found',
         401 => "errors.not_valid"
-     ],
+    ],
 
     /*
 	|-------------------------------------------------------------------------------------------------------------------
@@ -86,6 +90,16 @@ return [
             \Illuminate\Http\Resources\Json\JsonResource::class => [
                 'handler' => \MarcinOrlowski\ResponseBuilder\Converters\ToArrayConverter::class,
                 'key'     => 'item',
+                'pri'     => 0,
+            ],
+            ResourceCollection::class => [
+                'handler' => ResourceCollectionConverter::class,
+                'key'     => 'items',
+                'pri'     => 0,
+            ],
+            AnonymousResourceCollection::class => [
+                'handler' => ResourceCollectionConverter::class,
+                'key'     => 'items',
                 'pri'     => 0,
             ],
 
@@ -193,6 +207,22 @@ return [
                     //			        'api_code'  => ApiCodes::YOUR_API_CODE_FOR_UNHANDLED_EXCEPTION,
                     //			        'http_code' => HttpResponse::HTTP_INTERNAL_SERVER_ERROR,
                 ],
+            ],
+        ],
+        TypeError::class => [
+            'handler' => ErrorHandler::class,
+            'pri'     => -100,
+            'config'  => [
+                //		        'api_code'  => ApiCodes::YOUR_API_CODE_FOR_VALIDATION_EXCEPTION,
+                //		        'http_code' => HttpResponse::HTTP_UNPROCESSABLE_ENTITY,
+            ],
+        ],
+        Error::class => [
+            'handler' => ErrorHandler::class,
+            'pri'     => -100,
+            'config'  => [
+                //		        'api_code'  => ApiCodes::YOUR_API_CODE_FOR_VALIDATION_EXCEPTION,
+                //		        'http_code' => HttpResponse::HTTP_UNPROCESSABLE_ENTITY,
             ],
         ],
     ],

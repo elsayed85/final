@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Error;
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use MarcinOrlowski\ResponseBuilder\ExceptionHandlerHelper;
@@ -56,13 +57,7 @@ class Handler extends ExceptionHandler
     {
         if ($request->acceptsJson() && $request->wantsJson()) {
             if ($e instanceof TypeError || $e instanceof Error) {
-                return response()->json([
-                    'success' =>  false,
-                    'message' => $e->getMessage(),
-                    'locale' => app()->getLocale(),
-                    'code' => 500,
-                    'data' =>  null
-                ], 500);
+                return ExceptionHandlerHelper::render($request, new Exception($e->getMessage(), $e->getCode(), $e->getPrevious()));
             } else {
                 return ExceptionHandlerHelper::render($request, $e);
             }

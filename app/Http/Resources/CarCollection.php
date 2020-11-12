@@ -14,8 +14,11 @@ class CarCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return [
-            "data" =>  $this->collection
-        ];
+        return $this->collection;
+    }
+
+    public function with($request)
+    {
+        return ['key' => "value"];
     }
 }

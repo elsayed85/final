@@ -12,11 +12,15 @@ use App\Models\Cars\Car;
 use App\Models\Users\User as UsersUser;
 use Illuminate\Http\Request;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
+use Psy\Exception\TypeErrorException;
+use TypeError;
 
 class CarsController extends Controller
 {
     public function index()
     {
-        return new CarCollection(Car::Avaiable()->latest()->paginate(2));
+        return ResponseBuilder::asSuccess()
+            ->withData(CarResource::collection(Car::Avaiable()->latest()->paginate(2)))
+            ->build();
     }
 }
