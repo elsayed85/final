@@ -17,6 +17,6 @@ class CarsController extends Controller
 {
     public function index()
     {
-        return response()->json(new CarCollection(Car::Avaiable()->latest()->paginate(10)), 200);
+        return new CarCollection(Car::Avaiable()->latest()->paginate(2));
     }
 }

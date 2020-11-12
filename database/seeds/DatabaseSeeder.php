@@ -2,8 +2,10 @@
 
 use App\Models\Cars\Brand;
 use App\Models\Cars\Car;
-use App\User;
+use App\Models\Users\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,9 +33,20 @@ class DatabaseSeeder extends Seeder
                 RolesSeeder::class,
             ]);
 
-            factory(User::class , 5)->create();
-            factory(Brand::class , 5)->create();
-            factory(Car::class , 70)->create();
+            User::create([
+                'name' => "test user",
+                'password' => Hash::make("password"),
+                'email' =>  "elsayedkamal581999@gmail.com",
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'phone' => "01092291556",
+                'geneder' => "m",
+                'birthdate' => now()->subYears(rand(10, 30))
+            ])->assignRole("client");
+
+            factory(User::class, 5)->create();
+            factory(Brand::class, 5)->create();
+            factory(Car::class, 300)->create();
         }
     }
 }
