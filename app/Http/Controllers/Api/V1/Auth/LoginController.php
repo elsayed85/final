@@ -18,6 +18,7 @@ class LoginController extends Controller
                 'token_type' => "Bearer"
             ]);
         }
+
         throw ValidationException::withMessages(['email' => "email or password is wrong"]);
     }
 
