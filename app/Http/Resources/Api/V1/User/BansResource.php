@@ -16,8 +16,8 @@ class BansResource extends JsonResource
     {
         return [
             'messsage' => $this->comment,
-            'expired_at_fo_humans' => $this->expired_at->diffForHumans(),
-            'expired_at_fo_humans' => $this->expired_at->format("Y-m-d h:i:s")
+            'expired_at_for_humans' => $this->expired_at->diffForHumans(),
+            'expired_at' => $this->expired_at->format("Y-m-d h:i:s")
         ];
     }
 }
