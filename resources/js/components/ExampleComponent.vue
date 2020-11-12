@@ -5,11 +5,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Example Component</div>
                 <div class="panel-body">
-                    <ul>
-                    <li v-for="user in users">
-                    {{ user.name }}
-                    </li>
-                    </ul>
+
                 </div>
             </div>
         </div>

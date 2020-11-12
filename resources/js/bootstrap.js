@@ -41,11 +41,7 @@ window.Echo = new Echo({
     disableStats: true,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     encrypted: true,
-    auth: {
-        headers: {
-            Authorization: 'Bearer ' + document.getElementById("csrf_token")
-        },
-    },
+    forceTLS: false,
 });
 
 import Vue from 'vue';
