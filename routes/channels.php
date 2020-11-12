@@ -17,7 +17,6 @@ Broadcast::channel('users', function ($user) {
     return $user;
 });
 
-
 Broadcast::channel('car', function ($user) {
     return true;
 });
