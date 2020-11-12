@@ -17,6 +17,14 @@ Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
 
 Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
+
+    Route::get("test" , function(){
+        auth()->user()->ban([
+            'comment' => 'Enjoy your ban!',
+            'expired_at' => now()->addMinutes(5),
+        ]);
+    });
+    
     Route::get("cars", [CarsController::class, "index"])->name("cars.index");
 
     Route::group(['prefix' => 'user', 'namespace' => "User"], function () {
