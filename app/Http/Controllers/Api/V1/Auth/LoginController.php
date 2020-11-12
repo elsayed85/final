@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Auth\LoginRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
 class LoginController extends Controller
@@ -17,7 +18,7 @@ class LoginController extends Controller
                 'token_type' => "Bearer"
             ]);
         }
-        return ResponseBuilder::error(401, ['name' => "login"]);
+        throw ValidationException::withMessages(['email' => "email or password is wrong"]);
     }
 
     protected function credentials()
