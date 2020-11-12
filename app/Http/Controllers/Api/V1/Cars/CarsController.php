@@ -20,7 +20,7 @@ class CarsController extends Controller
     public function index()
     {
         return ResponseBuilder::asSuccess()
-            ->withData(CarResource::collection(Car::Avaiable()->latest()->paginate(2)))
+            ->withData(CarResource::collection(Car::Avaiable()->latest()->paginate(10)))
             ->build();
     }
 }
