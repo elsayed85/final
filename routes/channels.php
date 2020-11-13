@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Broadcast;
-
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -13,10 +11,6 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('users', function ($user) {
-    return $user;
-});
-
-Broadcast::channel('car', function ($user) {
-    return true;
+Broadcast::channel('chat', function ($user) {
+	return $user;
 });
