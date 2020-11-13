@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "astrotomic/laravel-translatable": "^11.9",
-        "beyondcode/laravel-websockets": "^1.9",
+        "beyondcode/laravel-websockets": "dev-master",
         "cybercog/laravel-ban": "^4.4",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -28,6 +28,7 @@
         "spatie/laravel-permission": "^3.17"
     },
     "require-dev": {
+        "beyondcode/laravel-dump-server": "^1.0",
         "facade/ignition": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",

@@ -18,7 +18,7 @@ window.Vue = require('vue');
  */
 
 const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -47,7 +47,8 @@ const app = new Vue({
             .leaving(user => {
                 this.users = this.users.filter(u => u.id !== user.id);
             })
-            .listenForWhisper('typing', ({id, name}) => {
+            .listenForWhisper('typing', ({ id, name }) => {
+                console.log("typing" ,id , name)
                 this.users.forEach((user, index) => {
                     if (user.id === id) {
                         user.typing = true;
@@ -56,6 +57,7 @@ const app = new Vue({
                 });
             })
             .listen('MessageSent', (event) => {
+                console.log("MessageSent" ,event)
                 this.messages.push({
                     message: event.message.message,
                     user: event.user

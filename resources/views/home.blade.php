@@ -8,7 +8,6 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    <example-component></example-component>
                 </div>
             </div>
         </div>

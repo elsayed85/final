@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/test', function () {
-    // User::find(1)->notify(new TestNotification());
-});
 
 
 Auth::routes(['verify' => true]);
