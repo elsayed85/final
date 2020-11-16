@@ -41,7 +41,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    function get_web_page($url, $cookiesIn = '')
+    public function get_web_page($url, $cookiesIn = '')
     {
         $options = array(
             CURLOPT_RETURNTRANSFER => true,     // return web page
