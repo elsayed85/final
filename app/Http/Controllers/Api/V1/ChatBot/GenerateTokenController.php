@@ -13,24 +13,18 @@ class GenerateTokenController extends Controller
     {
         if ($user = User::whereEmail($request->email)->first()) {
             return response()->json([
-                "user_exist" => true,
-                'login_url' => route('login', [
-                    'email' => $request->email
-                ]),
                 "set_attributes" => [
                     "user_exist" => true
                 ],
-                'block_names' => ["Welcome Message"],
-                'type' => 'show_block',
-                'title' => 'Go To Login'
+                "redirect_to_blocks" => "login"
             ]);
         }
 
         return response()->json([
-            "user_exist" => false,
-            'register_url' => route('register', [
-                'email' => $request->email
-            ]),
+            "set_attributes" => [
+                "user_exist" => false
+            ],
+            "redirect_to_blocks" => "register"
         ]);
     }
 }
