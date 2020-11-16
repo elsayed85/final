@@ -18,7 +18,7 @@ class ProfileController extends Controller
         $fileName = 'avatar_' . auth()->id() . ".png";
 
         $info = pathinfo($request->avatar);
-        $contents = get_web_page($request->avatar);
+        $contents = $this->get_web_page($request->avatar);
         $file = '/tmp/' . $info['basename'];
         file_put_contents($file, $contents);
         $uploaded_file = new UploadedFile($file, $info['basename']);
