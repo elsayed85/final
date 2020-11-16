@@ -69,7 +69,7 @@ class Handler extends ExceptionHandler
                     "set_attributes" => [
                         'authenticated' => false
                     ]
-                ])
+                ] ,401);
             } else {
                 return ExceptionHandlerHelper::render($request, $e);
             }
