@@ -16,10 +16,11 @@ class ProfileController extends Controller
 
     public function updateAvatar(Request $request)
     {
-        $file = Storage::disk('public')->put('avatar_' . auth()->id() . ".png", $request->avatar);
-        return $file;
+        $fileName = 'avatar_' . auth()->id() . ".png";
+        Storage::disk('public')->put($fileName, $request->avatar);
 
-        auth()->user()->addMediaFromRequest($request->avatar)->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
+        auth()->user()->addMediaFromDisk($fileName, 'public')->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
+
         return response()->json([
             "messages" =>  [
                 [
