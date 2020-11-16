@@ -17,8 +17,6 @@ class ProfileController extends Controller
 
     public function updateAvatar(Request $request)
     {
-        auth()->user()->addMediaFromUrl($request->avatar)->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
-
         return response()->json([
             "messages" =>  [
                 [
