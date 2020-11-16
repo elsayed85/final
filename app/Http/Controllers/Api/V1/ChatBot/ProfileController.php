@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1\ChatBot;
-ini_set('allow_url_fopen',1);
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -18,14 +18,7 @@ class ProfileController extends Controller
     {
         $fileName = 'avatar_' . auth()->id() . ".png";
 
-        $info = pathinfo($request->avatar);
-        $contents = file_get_contents($request->avatar);
-        $file = '/tmp/' . $info['basename'];
-        file_put_contents($file, $contents);
-
-        $uploaded_file = new UploadedFile($file, $info['basename']);
-
-        return $uploaded_file;
+        $image = Image::make($request->avatar);
 
         auth()->user()->addMediaFromDisk($fileName, 'public')->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
 
