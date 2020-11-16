@@ -15,16 +15,14 @@ class GenerateTokenController extends Controller
             return response()->json([
                 "set_attributes" => [
                     "user_exist" => true
-                ],
-                "redirect_to_blocks" => "login"
+                ]
             ]);
         }
 
         return response()->json([
             "set_attributes" => [
                 "user_exist" => false
-            ],
-            "redirect_to_blocks" => "register"
+            ]
         ]);
     }
 }
