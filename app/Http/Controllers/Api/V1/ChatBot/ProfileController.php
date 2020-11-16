@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Api\V1\ChatBot;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 
 class ProfileController extends Controller
 {
@@ -17,8 +16,14 @@ class ProfileController extends Controller
     public function updateAvatar(Request $request)
     {
         $fileName = 'avatar_' . auth()->id() . ".png";
-        
-        Storage::disk('public')->put($fileName, $request->avatar);
+
+        $info = pathinfo($request->avatar);
+        $contents = file_get_contents($request->avatar);
+        $file = '/tmp/' . $info['basename'];
+        file_put_contents($file, $contents);
+        $uploaded_file = new UploadedFile($file, $info['basename']);
+
+        return $uploaded_file;
 
         auth()->user()->addMediaFromDisk($fileName, 'public')->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
 
