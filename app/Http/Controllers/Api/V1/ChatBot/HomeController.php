@@ -26,7 +26,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function generateNewToekn(Request $request)
+    public function generateNewToken(Request $request)
     {
         $request->validate([
             'bot_key' => ['required'],
@@ -37,6 +37,14 @@ class HomeController extends Controller
         $user = User::whereEmail($request->email)->first();
 
         $chatBotApiToken = $user->chatBotApiToken;
+
+        if (!$chatBotApiToken) {
+            return response()->json([
+                "set_attributes" => [
+                    'authenticated' => false
+                ]
+            ]);
+        }
 
         if ($request->bot_key == $chatBotApiToken->key && $request->bot_secret == $chatBotApiToken->secret) {
             return response()->json([
