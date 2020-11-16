@@ -39,7 +39,7 @@ class HomeController extends Controller
 
         $chatBotApiToken = $user->chatBotApiToken;
 
-        if ($request->chatBotApiToken == $chatBotApiToken->chatBotApiToken && $request->bot_secret == $chatBotApiToken->bot_secret) {
+        if ($request->bot_key == $chatBotApiToken->bot_key && $request->bot_secret == $chatBotApiToken->bot_secret) {
             return response()->json([
                 "set_attributes" => [
                     'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken
