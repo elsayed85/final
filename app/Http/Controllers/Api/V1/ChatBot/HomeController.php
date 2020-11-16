@@ -26,4 +26,17 @@ class HomeController extends Controller
             ]
         ]);
     }
+
+    public function generateNewToekn(Request $request)
+    {
+        $request->validate([
+            'bot_key' => ['required'],
+            'bot_secret' => ['required'],
+            'email' => ['required', 'email', 'exists:users,email']
+        ]);
+
+        $user = User::whereEmail($request->email)->first();
+
+        return $user;
+    }
 }
