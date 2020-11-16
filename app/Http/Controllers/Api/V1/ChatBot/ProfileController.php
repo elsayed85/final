@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\ChatBot;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Intervention\Image\Image;
 
 class ProfileController extends Controller
 {
