@@ -20,6 +20,8 @@ class ProfileController extends Controller
 
         $image = Image::make($request->avatar);
 
+        return $image;
+
         auth()->user()->addMediaFromDisk($fileName, 'public')->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
 
         return response()->json([
