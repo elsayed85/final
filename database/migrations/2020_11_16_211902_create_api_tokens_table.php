@@ -19,6 +19,7 @@ class CreateApiTokensTable extends Migration
             $table->string('secret');
             $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->on("users")->references('id')->onDelete('cascade');
+            $table->unique('key', 'secret');
             $table->timestamps();
         });
     }
