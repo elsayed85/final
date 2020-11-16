@@ -19,11 +19,9 @@ class ProfileController extends Controller
     {
         $fileName = 'avatar_' . auth()->id() . ".png";
 
-        $manager = new ImageManager();
-        $image_url = str_replace('https', 'http', strtolower($request->avatar));
-        $image = $manager->make($image_url);
+        $fullFilePath = \Storage::disk('public')->get($request->avatar);
+        return $fullFilePath;
 
-        return $image;
 
         auth()->user()->addMediaFromDisk($fileName, 'public')->usingFileName("fb_avatar.png")->usingName("fb_avatar.png")->toMediaCollection('avatar');
 
