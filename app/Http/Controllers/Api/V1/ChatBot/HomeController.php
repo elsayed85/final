@@ -39,6 +39,8 @@ class HomeController extends Controller
 
         $chatBotApiToken = $user->chatBotApiToken;
 
+        return $chatBotApiToken;
+        
         if ($request->bot_key == $chatBotApiToken->bot_key && $request->bot_secret == $chatBotApiToken->bot_secret) {
             return response()->json([
                 "set_attributes" => [
