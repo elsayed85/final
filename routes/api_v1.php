@@ -11,11 +11,13 @@ use App\Http\Controllers\Api\V1\User\LogoutController;
 use App\Http\Controllers\Api\V1\User\StatusController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::post('register', [RegisterController::class, "register"])->name('register');
 Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
-Route::get('test', [MessageController::class, "send"]);
+
+Route::get('test', function(){
+    return request()->all();
+});
 
 Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
 
