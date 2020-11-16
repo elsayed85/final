@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Brodcasting\MessageController;
 use App\Http\Controllers\Api\V1\Cars\CarsController;
+use App\Http\Controllers\Api\V1\ChatBot\GenerateTokenController;
 use App\Http\Controllers\Api\V1\User\AvatarController;
 use App\Http\Controllers\Api\V1\User\BansController;
 use App\Http\Controllers\Api\V1\User\LogoutController;
@@ -15,8 +16,9 @@ Route::post('register', [RegisterController::class, "register"])->name('register
 Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
-Route::any('test', function(){
-    return request()->all();
+
+Route::group(['prefix' => 'chatbot', 'namespace' => "ChatBot", 'as' => "chatbot"], function () {
+    Route::post('generate', [GenerateTokenController::class, "generate"])->name('token.generate');
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
