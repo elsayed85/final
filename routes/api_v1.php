@@ -15,7 +15,7 @@ Route::post('register', [RegisterController::class, "register"])->name('register
 Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
-Route::get('test', function(){
+Route::any('test', function(){
     return request()->all();
 });
 
