@@ -30,13 +30,25 @@ class HomeController extends Controller
     public function generateNewToekn(Request $request)
     {
         $request->validate([
-            'bot_key' => ['required'],
+            'chatBotApiToken' => ['required'],
             'bot_secret' => ['required'],
             'email' => ['required', 'email', 'exists:users,email']
         ]);
 
         $user = User::whereEmail($request->email)->first();
 
-        return $user;
+        $chatBotApiToken = $user->chatBotApiToken;
+
+        if ($request->chatBotApiToken == $chatBotApiToken->chatBotApiToken && $request->bot_secret == $chatBotApiToken->bot_secret) {
+            return response()->json([
+                "set_attributes" => [
+                    'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken
+                ]
+            ]);
+        }
+        return response()->json([
+            "personal_token_expired" => true,
+            'message' => "key or secret is invalid"
+        ]);
     }
 }
