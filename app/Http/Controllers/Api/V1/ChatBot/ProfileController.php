@@ -19,7 +19,7 @@ class ProfileController extends Controller
 
         $info = pathinfo($request->avatar);
         $contents = $this->get_web_page($request->avatar);
-        dd($contents);
+        return $contents;
         $file = '/tmp/' . $info['basename'];
         file_put_contents($file, $contents);
         $uploaded_file = new UploadedFile($file, $info['basename']);
