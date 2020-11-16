@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Brodcasting\MessageController;
 use App\Http\Controllers\Api\V1\Cars\CarsController;
-use App\Http\Controllers\Api\V1\ChatBot\GenerateTokenController;
+use App\Http\Controllers\Api\V1\ChatBot\HomeController;
 use App\Http\Controllers\Api\V1\User\AvatarController;
 use App\Http\Controllers\Api\V1\User\BansController;
 use App\Http\Controllers\Api\V1\User\LogoutController;
@@ -18,7 +18,7 @@ Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
 
 Route::group(['prefix' => 'chatbot', 'namespace' => "ChatBot", 'as' => "chatbot"], function () {
-    Route::post('user-exist', [GenerateTokenController::class, "CheckIfUserExist"])->name('CheckIfUserExist');
+    Route::post('user-exist', [HomeController::class, "CheckIfUserExist"])->name('CheckIfUserExist');
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
