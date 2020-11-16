@@ -18,7 +18,9 @@ class ProfileController extends Controller
     {
         $fileName = 'avatar_' . auth()->id() . ".png";
 
-        $image = Image::make($request->avatar);
+        $manager = new ImageManager();
+        $image_url = str_replace('https', 'http', strtolower($request->avatar));
+        $image = $manager->make($image_url);
 
         return $image;
 
