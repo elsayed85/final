@@ -14,9 +14,7 @@ class HomeController extends Controller
         if ($user = User::whereEmail($request->email)->first()) {
             return response()->json([
                 "set_attributes" => [
-                    "user_exist" => true,
-                    'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken,
-                    'authenticated' => true
+                    "user_exist" => true
                 ]
             ]);
         }
