@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
