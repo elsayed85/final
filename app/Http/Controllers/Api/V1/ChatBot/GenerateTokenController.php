@@ -24,7 +24,8 @@ class GenerateTokenController extends Controller
             "user_exist" => false,
             'register_url' => route('register', [
                 'email' => $request->email
-            ])
+            ]),
         ]);
     }
 }
+
