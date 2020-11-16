@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1\ChatBot;
+ini_set('allow_url_fopen',1);
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ProfileController extends Controller
         $contents = file_get_contents($request->avatar);
         $file = '/tmp/' . $info['basename'];
         file_put_contents($file, $contents);
-        
+
         $uploaded_file = new UploadedFile($file, $info['basename']);
 
         return $uploaded_file;
