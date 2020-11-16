@@ -14725,9 +14725,10 @@ window.Pusher = __webpack_require__(37);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo__["a" /* default */]({
   broadcaster: 'pusher',
-  key: "websocketkey",
+  key: "local",
   wsHost: window.location.hostname,
   wsPort: 6001,
+  forceTLS: false,
   disableStats: true
 });
 

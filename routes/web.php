@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\TestEvent;
 use App\Models\Users\User;
 use App\Notifications\TestNotification;
 use Illuminate\Support\Facades\Artisan;
@@ -16,3 +17,8 @@ Route::post('messages', 'ChatsController@sendMessage');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('test', function () {
+    broadcast(new TestEvent());
+});
