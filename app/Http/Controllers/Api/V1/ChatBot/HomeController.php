@@ -39,8 +39,6 @@ class HomeController extends Controller
 
         $chatBotApiToken = $user->chatBotApiToken;
 
-        return $chatBotApiToken;
-
         if ($request->bot_key == $chatBotApiToken->key && $request->bot_secret == $chatBotApiToken->secret) {
             return response()->json([
                 "set_attributes" => [
@@ -48,6 +46,7 @@ class HomeController extends Controller
                 ]
             ]);
         }
+
         return response()->json([
             "personal_token_expired" => true,
             'message' => "key or secret is invalid"
