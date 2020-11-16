@@ -24,6 +24,7 @@ Route::group(['prefix' => 'chatbot', 'namespace' => "ChatBot", 'as' => "chatbot.
 
     Route::group(['middleware' => ['auth:sanctum'], 'as' => "user." , 'prefix' => "user"], function () {
         Route::get('profile', [ProfileController::class, "profile"])->name('profile');
+        Route::post('update-avatar', [ProfileController::class, "updateAvatar"])->name('update_avatar');
     });
 });
 
