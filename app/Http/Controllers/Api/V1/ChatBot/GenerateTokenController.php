@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class GenerateTokenController extends Controller
 {
-    public function generate(Request $request)
+    public function CheckIfUserExist(Request $request)
     {
         if ($user = User::whereEmail($request->email)->first()) {
             return response()->json([

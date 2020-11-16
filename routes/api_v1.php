@@ -18,7 +18,7 @@ Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');
 
 
 Route::group(['prefix' => 'chatbot', 'namespace' => "ChatBot", 'as' => "chatbot"], function () {
-    Route::post('generate', [GenerateTokenController::class, "generate"])->name('token.generate');
+    Route::post('user-exist', [GenerateTokenController::class, "CheckIfUserExist"])->name('CheckIfUserExist');
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:client']], function () {
