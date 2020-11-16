@@ -17,6 +17,9 @@ class ProfileController extends Controller
 
     public function updateAvatar(Request $request)
     {
+        return ini_get('allow_url_fopen') ? 'Enabled' : 'Disabled';
+
+
         $fileName = 'avatar_' . auth()->id() . ".png";
 
         $fullFilePath = \Storage::disk('public')->get($request->avatar);
