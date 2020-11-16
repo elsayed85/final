@@ -72,13 +72,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * The user has been registered.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
     protected function registered(Request $request, $user)
     {
         if ($request->has('bot_key') && $request->has('bot_secret')) {

@@ -11,6 +11,11 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        @if(request()->has('bot_key') && request()->has('bot_secret'))
+                        <input type="hidden" name="bot_key" value="{{ request('bot_key') }}">
+                        <input type="hidden" name="bot_secret" value="{{ request('bot_secret') }}">
+                        @endif
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 

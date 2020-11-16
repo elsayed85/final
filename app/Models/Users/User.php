@@ -15,7 +15,7 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements HasMedia, BannableContract, MustVerifyEmail
+class User extends Authenticatable implements HasMedia, BannableContract
 {
     use Notifiable, HasApiTokens, HasMediaTrait, Bannable, PhoneVerificationTrait, HasRoles;
 
