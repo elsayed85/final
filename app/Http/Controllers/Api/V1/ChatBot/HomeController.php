@@ -15,7 +15,8 @@ class HomeController extends Controller
             return response()->json([
                 "set_attributes" => [
                     "user_exist" => true,
-                    'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken
+                    'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken,
+                    'authenticated' => true
                 ]
             ]);
         }
@@ -42,13 +43,14 @@ class HomeController extends Controller
         if ($request->bot_key == $chatBotApiToken->key && $request->bot_secret == $chatBotApiToken->secret) {
             return response()->json([
                 "set_attributes" => [
-                    'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken
+                    'personal_token' => "Bearer " . $user->createToken('chatbot')->plainTextToken,
+                    'authenticated' => true
                 ]
             ]);
         }
 
         return response()->json([
-            "personal_token_expired" => true,
+            'authenticated' => false,
             'message' => "key or secret is invalid"
         ]);
     }

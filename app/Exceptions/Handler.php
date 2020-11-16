@@ -4,9 +4,11 @@ namespace App\Exceptions;
 
 use Error;
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Throwable;
 use MarcinOrlowski\ResponseBuilder\ExceptionHandlerHelper;
+use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
+use Throwable;
 use TypeError;
 
 class Handler extends ExceptionHandler
@@ -59,6 +61,15 @@ class Handler extends ExceptionHandler
             $request->headers->set('Accept', 'application/json');
             if ($e instanceof TypeError || $e instanceof Error) {
                 return ExceptionHandlerHelper::render($request, new Exception($e->getMessage(), $e->getCode(), $e->getPrevious()));
+            } elseif($e instanceof AuthenticationException){
+                return response()->json([
+                    "success" => false,
+                    'code' => 401,
+                    'message' => $e->getMessage(),
+                    "set_attributes" => [
+                        'authenticated' => false
+                    ]
+                ])
             } else {
                 return ExceptionHandlerHelper::render($request, $e);
             }
