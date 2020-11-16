@@ -16,7 +16,13 @@ class GenerateTokenController extends Controller
                 "user_exist" => true,
                 'login_url' => route('login', [
                     'email' => $request->email
-                ])
+                ]),
+                "set_attributes" => [
+                    "user_exist" => true
+                ],
+                'block_names' => ["Welcome Message"],
+                'type' => 'show_block',
+                'title' => 'Go To Login'
             ]);
         }
 
@@ -28,4 +34,3 @@ class GenerateTokenController extends Controller
         ]);
     }
 }
-
