@@ -70,4 +70,21 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        if ($request->has('bot_key') && $request->has('bot_secret')) {
+            $user->chatBotApiToken()->create([
+                'key' => $request->bot_key,
+                'secret' => $request->bot_secret
+            ]);
+        }
+    }
 }

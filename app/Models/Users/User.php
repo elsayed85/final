@@ -3,6 +3,7 @@
 namespace App\Models\Users;
 
 use App\Message;
+use App\Models\ChatBot\ApiToken;
 use App\Models\Users\Traits\PhoneVerificationTrait;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
@@ -100,5 +101,10 @@ class User extends Authenticatable implements HasMedia, BannableContract, MustVe
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function chatBotApiToken()
+    {
+        return $this->hasOne(ApiToken::class);
     }
 }
