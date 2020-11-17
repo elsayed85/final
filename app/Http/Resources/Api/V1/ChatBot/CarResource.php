@@ -10,7 +10,7 @@ class CarResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "title" => optional($this->brand)->name  . " Car #" . $this->id,
+            "title" => "Car #" . $this->id,
             "image_url" => "https://ukvehicledata.co.uk/images/redcar.png",
             "subtitle" => "brand: " . optional($this->brand)->name,
             "buttons" => [
