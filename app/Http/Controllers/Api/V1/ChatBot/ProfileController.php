@@ -33,7 +33,6 @@ class ProfileController extends Controller
                         "type" => "template",
                         "payload" => [
                             "template_type" =>  "button",
-                            "text" =>  "Hello!",
                             "buttons" =>  [
                                 [
                                     "type" =>  "web_url",
