@@ -74,6 +74,7 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
+        $user->assignRole('client');
         if ($request->has('bot_key') && $request->has('bot_secret')) {
             $user->chatBotApiToken()->create([
                 'key' => $request->bot_key,
