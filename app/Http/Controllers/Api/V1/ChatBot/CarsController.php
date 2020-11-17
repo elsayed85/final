@@ -20,7 +20,7 @@ class CarsController extends Controller
                         "payload" => [
                             "template_type" =>  "generic",
                             "image_aspect_ratio" => "square",
-                            "elements" => CarResource::collection(Car::Avaiable()->latest()->take(5)),
+                            "elements" => CarResource::collection(Car::Avaiable()->latest()->take(5)->get()),
                             "buttons" =>  [
                                 [
                                     "type" =>  "web_url",
