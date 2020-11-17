@@ -12,7 +12,6 @@ class CarsController extends Controller
 {
     public function index()
     {
-        dd('hey');
         return response()->json([
             "messages" =>  [
                 [
