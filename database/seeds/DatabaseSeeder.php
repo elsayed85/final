@@ -31,12 +31,13 @@ class DatabaseSeeder extends Seeder
 
             $this->call([
                 RolesSeeder::class,
+                BrandSeeder::class
             ]);
 
             User::create([
                 'name' => "test user",
                 'password' => Hash::make("password"),
-                'email' =>  "elsayedkamal581999@gmail.com",
+                'email' =>  "elsayed@gmail.com",
                 'email_verified_at' => now(),
                 'remember_token' => Str::random(10),
                 'phone' => "01092291556",
@@ -45,7 +46,6 @@ class DatabaseSeeder extends Seeder
             ])->assignRole("client");
 
             factory(User::class, 5)->create();
-            factory(Brand::class, 5)->create();
             factory(Car::class, 300)->create();
         }
     }

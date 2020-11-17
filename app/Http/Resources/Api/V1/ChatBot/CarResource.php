@@ -12,7 +12,7 @@ class CarResource extends JsonResource
         return [
             "title" => optional($this->brand)->name  . " Car #" . $this->id,
             "image_url" => "https://ukvehicledata.co.uk/images/redcar.png",
-            "subtitle" => "brand: {optional($this->brand)->name}",
+            "subtitle" => "brand: " . optional($this->brand)->name,
             "buttons" => [
                 [
                     "type" => "web_url",
