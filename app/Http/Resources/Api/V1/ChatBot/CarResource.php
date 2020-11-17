@@ -11,7 +11,7 @@ class CarResource extends JsonResource
     {
         return [
             "title" => "Car #" . $this->id,
-            "image_url" => "https://via.placeholder.com/150/000/000?Text=" . optional($this->brand)->name,
+            "image_url" => "https://i.imgur.com/QWdLqWF.jpg",
             "subtitle" => "brand: " . optional($this->brand)->name,
             "buttons" => [
                 [
