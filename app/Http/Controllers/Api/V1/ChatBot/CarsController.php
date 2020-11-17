@@ -12,6 +12,7 @@ class CarsController extends Controller
 {
     public function index()
     {
+        dd('hey');
         return response()->json([
             "messages" =>  [
                 [
@@ -20,7 +21,7 @@ class CarsController extends Controller
                         "payload" => [
                             "template_type" =>  "generic",
                             "image_aspect_ratio" => "square",
-                            "elements" => new CarCollection(Car::Avaiable()->latest()->take(5)),
+                            "elements" => CarResource::collection(Car::Avaiable()->latest()->take(5)),
                             "buttons" =>  [
                                 [
                                     "type" =>  "web_url",
