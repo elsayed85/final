@@ -27,6 +27,33 @@ class ProfileController extends Controller
                             "url" => "https://ewscripps.brightspotcdn.com/dims4/default/5194996/2147483647/strip/true/crop/1000x563+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2Fe9%2F93%2Fa52c003f42ea9ebb36550ca123eb%2Fmike-kelly.png"
                         ]
                     ]
+                ],
+                [
+                    "attachment" =>  [
+                        "type" => "template",
+                        "payload" => [
+                            "template_type" =>  "button",
+                            "text" =>  "Hello!",
+                            "buttons" =>  [
+                                [
+                                    "type" =>  "show_block",
+                                    "block_names" =>  ["name of block"],
+                                    "title" =>  "Show Block"
+                                ],
+                                [
+                                    "type" =>  "web_url",
+                                    "url" =>  "https=> //rockets.chatfuel.com",
+                                    "webview_height_ratio" =>  "compact",
+                                    "title" =>  "Visit Website"
+                                ],
+                                [
+                                    "url" =>  "https=> //rockets.chatfuel.com/api/welcome",
+                                    "type" => "json_plugin_url",
+                                    "title" => "Postback"
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
             ]
         ]);
