@@ -36,20 +36,10 @@ class ProfileController extends Controller
                             "text" =>  "Hello!",
                             "buttons" =>  [
                                 [
-                                    "type" =>  "show_block",
-                                    "block_names" =>  ["name of block"],
-                                    "title" =>  "Show Block"
-                                ],
-                                [
                                     "type" =>  "web_url",
-                                    "url" =>  "https=> //rockets.chatfuel.com",
+                                    "url" =>  "https://erada-soft.com/sdc/public/profile",
                                     "webview_height_ratio" =>  "compact",
-                                    "title" =>  "Visit Website"
-                                ],
-                                [
-                                    "url" =>  "https=> //rockets.chatfuel.com/api/welcome",
-                                    "type" => "json_plugin_url",
-                                    "title" => "Postback"
+                                    "title" =>  "Change Avatar"
                                 ]
                             ]
                         ]
