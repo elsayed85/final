@@ -20,6 +20,7 @@ class ProfileController extends Controller
         return response()->json([
             "messages" =>  [
                 [
+                    "text" => "this is a test image for u",
                     "attachment" =>  [
                         "type" => "image",
                         "payload" => [
