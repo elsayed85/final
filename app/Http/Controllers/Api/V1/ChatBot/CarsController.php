@@ -21,14 +21,6 @@ class CarsController extends Controller
                             "template_type" =>  "generic",
                             "image_aspect_ratio" => "square",
                             "elements" => CarResource::collection(Car::Avaiable()->latest()->take(5)->get()),
-                            "buttons" =>  [
-                                [
-                                    "type" =>  "web_url",
-                                    "url" =>  "https://erada-soft.com/sdc/public/profile",
-                                    "webview_height_ratio" =>  "compact",
-                                    "title" =>  "Change Avatar"
-                                ]
-                            ]
                         ]
                     ]
                 ]
