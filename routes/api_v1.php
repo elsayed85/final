@@ -3,7 +3,6 @@
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
-use App\Http\Controllers\Api\V1\Brodcasting\MessageController;
 use App\Http\Controllers\Api\V1\Cars\CarsController;
 use App\Http\Controllers\Api\V1\ChatBot\CarsController as ChatBotCarsController;
 use App\Http\Controllers\Api\V1\ChatBot\HomeController;
