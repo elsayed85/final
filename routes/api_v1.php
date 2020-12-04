@@ -13,6 +13,13 @@ use App\Http\Controllers\Api\V1\User\LogoutController;
 use App\Http\Controllers\Api\V1\User\StatusController;
 use Illuminate\Support\Facades\Route;
 
+Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
+    Route::get('test', function () {
+        return "hi ardino";
+    });
+});
+
+
 Route::post('register', [RegisterController::class, "register"])->name('register');
 Route::post('login', [LoginController::class, "login"])->name('login');
 Route::post('reset', [ForgotPasswordController::class, "reset"])->name('reset');

@@ -82,4 +82,5 @@ class RouteServiceProvider extends ServiceProvider
             require base_path('routes/api_v1.php');
         });
     }
+
 }
