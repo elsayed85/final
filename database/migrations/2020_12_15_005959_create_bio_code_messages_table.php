@@ -16,12 +16,13 @@ class CreateBioCodeMessagesTable extends Migration
         Schema::create('bio_code_messages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('phone')->nullable();
+            $table->string('email')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->longText('message')->nullable();
             $table->json('sessions');
             $table->timestamps();
         });
+        \DB::statement('ALTER TABLE bio_code_messages AUTO_INCREMENT = 400;');
     }
 
     /**
