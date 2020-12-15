@@ -12,7 +12,7 @@ class MessagesController extends Controller
         $request->validate([
             'name' => ['required', 'min:3', 'max:40'],
             'email' => ['required', 'email', 'max:60'],
-            'phone' => ['nullable', 'numeric', 'min:10', 'max:30'],
+            'phone' => ['nullable', 'min:10', 'max:30'],
             'message' => ['nullable', 'min:3', 'max:500'],
             'sessions' => ['required' , 'array' , 'min:1']
         ]);

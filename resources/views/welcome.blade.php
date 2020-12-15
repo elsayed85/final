@@ -98,3 +98,81 @@
         </div>
     </body>
 </html>
+
+<form method="POST" action="https://erada-soft.com/sdc/public/api/v1/biocode/messages" id="bicode_form">
+    <div class="form">
+       <div class="left">
+           <div class="inputBx">
+                <input type="text" id="username" placeholder="please Enter Your Name" name="name" required>
+                <i class="fas fa-file-signature"></i>
+                <div class="valid-message"></div>
+           </div>
+           <div class="inputBx">
+                <input type="email" id="email" placeholder="Your E-mail" name="email" required>
+                <i class="fas fa-envelope"></i>
+                <div class="valid-message"></div>
+            </div>
+           <div class="inputBx">
+                <input type="text" id="phone" placeholder="Your Number"  name="phone">
+                <i class="fas fa-phone"></i>
+                <div class="valid-message"></div>
+            </div>
+
+       </div>
+       <div class="right">
+
+            <div class="inputBx textarea">
+                <i class="fas fa-hand-point-right"></i>
+                <textarea name="message" placeholder="Leave Your Message Or Want To Add A new Field "></textarea>
+           </div>
+            <div class="inputBx .selector">
+               <div class="multi_select_box">
+                   <select class="multi_select w-100" multiple name="sessions">
+                        <optgroup label="Day1">
+                            <option value="Bio Informatics">Bio Informatics</option>
+                            <option value="Flutter">Flutter</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                        </optgroup>
+                        <optgroup label="Day2">
+                            <option value="Web Development">Web Development</option>
+                            <option value="Machine Learning">Machine Learning</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                        </optgroup>
+
+                   </select>
+               </div>
+            </div>
+            <button type="submit" >Send</button>
+       </div>
+    </div>
+</form>
+
+<div id="output_message"></div>
+
+
+<script>
+    $(document).ready(function() {
+    $('#bicode_form').on('submit',function(){
+        // Add text 'loading...' right after clicking on the submit button.
+        $('#output_message').text('Loading...');
+
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'),
+            method: form.attr('method'),
+            data: form.serialize(),
+            success: function(result){
+                console.log(result)
+                if (result == 'success'){
+                    $('.output_message').text('Message Sent!');
+                } else {
+                    $('.output_message').text('Error Sending email!');
+                }
+            }
+        });
+
+        // Prevents default submission of the form after clicking on the submit button.
+        return false;
+    });
+});
+</script>
