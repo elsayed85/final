@@ -152,7 +152,10 @@
 
 <script>
     $(document).ready(function() {
-    $('#bicode_form').on('submit',function(){
+    $('#bicode_form').on('submit',function(e){
+
+        ev.preventDefault();
+
         // Add text 'loading...' right after clicking on the submit button.
         $('#output_message').text('Loading...');
 

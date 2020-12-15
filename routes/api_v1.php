@@ -23,6 +23,7 @@ Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
 
 Route::group(['prefix' => 'biocode'], function () {
     Route::post('/messages', [MessagesController::class , "send"]);
+    Route::get('/messages/sdc', [MessagesController::class , "getAllMessages"]);
 });
 
 

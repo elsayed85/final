@@ -43,3 +43,15 @@
 #28 /Volumes/PMAC/mine/mywork/backend/projects/final/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #29 {main}
 "} 
+[2020-12-15 02:06:55] local.ERROR: Uncaught BadMethodCallException: Method Illuminate\Http\Request::first does not exist. in /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Support/Traits/Macroable.php:77
+Stack trace:
+#0 Command line code(2): Illuminate\Http\Request::__callStatic('first', Array)
+#1 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught BadMethodCallException: Method Illuminate\\Http\\Request::first does not exist. in /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Support/Traits/Macroable.php:77
+Stack trace:
+#0 Command line code(2): Illuminate\\Http\\Request::__callStatic('first', Array)
+#1 {main}
+  thrown at /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Support/Traits/Macroable.php:77)
+[stacktrace]
+#0 {main}
+"} 
