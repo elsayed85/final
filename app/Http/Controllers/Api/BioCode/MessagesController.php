@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\BioCode;
 use App\Http\Controllers\Controller;
 use App\Mail\BioCodeMessageMail;
 use App\Models\BioCode\Message;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -14,8 +15,8 @@ class MessagesController extends Controller
     {
         $request->validate([
             'name' => ['required', 'min:3', 'max:40'],
-            'email' => ['required', 'email', 'max:60' , 'unique:bio_code_messages,email'],
-            'phone' => ['nullable', 'min:10', 'max:30' , 'unique:bio_code_messages,phone'],
+            'email' => ['required', 'email', 'max:60', 'unique:bio_code_messages,email'],
+            'phone' => ['nullable', 'min:10', 'max:30', 'unique:bio_code_messages,phone'],
             'message' => ['nullable', 'min:3', 'max:500'],
             'sessions' => ['required', 'array', 'min:1']
         ]);
@@ -28,11 +29,15 @@ class MessagesController extends Controller
             'sessions' => json_encode($request->sessions)
         ]);
 
-        Mail::to($request->email)->send(new BioCodeMessageMail($message));
+        try {
+            Mail::to($request->email)->send(new BioCodeMessageMail($message));
+        } catch (Exception $e) {
+            //
+        }
 
 
         return response()->json([
-            'message' => view("biocodeMail" , ['BioCodeMessage' => $message])->render(),
+            'message' => view("biocodeMail", ['BioCodeMessage' => $message])->render(),
             'message_id' => $message->id,
             'success' =>  true
         ]);
