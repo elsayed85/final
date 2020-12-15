@@ -28,10 +28,10 @@ class MessagesController extends Controller
             'sessions' => json_encode($request->sessions)
         ]);
 
-        Mail::to($request->email)->send(new BioCodeMessageMail($message));
-
+/*         Mail::to($request->email)->send(new BioCodeMessageMail($message));
+ */
         return response()->json([
-            'message' => view("biocodeMail" , ['message' => $message])->render(),
+            'message' => view("biocodeMail" , ['message' => $message])->render,
             'message_id' => $message->id
         ]);
     }
