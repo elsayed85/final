@@ -13,16 +13,16 @@ class BioCodeMessageMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $el;
+    public $message;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Message $el)
+    public function __construct(Message $message)
     {
-        $this->el = $el;
+        $this->message = $message;
     }
 
     /**
