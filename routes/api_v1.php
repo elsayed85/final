@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BioCode\MessagesController;
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
@@ -17,6 +18,11 @@ Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
     Route::get('test', function () {
         return "hi ardino";
     });
+});
+
+
+Route::group(['prefix' => 'biocode'], function () {
+    Route::post('/messages', [MessagesController::class , "send"]);
 });
 
 
