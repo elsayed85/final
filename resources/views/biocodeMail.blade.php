@@ -4,4 +4,4 @@
     <strong>your id is {{ $message->id }}</strong>
 </h1> --}}
 
-{{ $message }}
+
