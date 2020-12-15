@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class BioCodeMessageMail extends Mailable
 {
@@ -31,6 +32,7 @@ class BioCodeMessageMail extends Mailable
      */
     public function build()
     {
+        Log::info($this->message);
         return $this->view('biocodeMail');
     }
 }
