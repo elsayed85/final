@@ -31,7 +31,7 @@ class MessagesController extends Controller
         Mail::to($request->email)->send(new BioCodeMessageMail($message));
 
         return response()->json([
-            'message' => "thanks for contact us!",
+            'message' => view("biocodeMail" , ['message' => $message])->render(),
             'message_id' => $message->id
         ]);
     }
