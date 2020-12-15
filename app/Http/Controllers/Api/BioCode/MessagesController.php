@@ -28,7 +28,7 @@ class MessagesController extends Controller
             'sessions' => json_encode($request->sessions)
         ]);
 
-        dd($message);
+        return $message;
 
         Mail::to($request->email)->send(new BioCodeMessageMail($message));
 
