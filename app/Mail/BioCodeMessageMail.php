@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\BioCode\Message;
+use App\Models\BioCode\Message as BioCodeMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,16 +13,16 @@ class BioCodeMessageMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $message;
+    public $BioCodeMessage;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Message $message)
+    public function __construct(BioCodeMessage $BioCodeMessage)
     {
-        $this->message = $message;
+        $this->BioCodeMessage = $BioCodeMessage;
     }
 
     /**
