@@ -32,7 +32,8 @@ class MessagesController extends Controller
  */
         return response()->json([
             'message' => view("biocodeMail" , ['message' => $message])->render(),
-            'message_id' => $message->id
+            'message_id' => $message->id,
+            'success' =>  true
         ]);
     }
 
