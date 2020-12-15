@@ -1,1 +1,1 @@
-hello {{ $mail->name }} , your id is {{ $mail->id }}
+hello {{ $message->name }} , your id is {{ $message->id }}
