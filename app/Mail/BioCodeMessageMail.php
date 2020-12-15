@@ -20,7 +20,7 @@ class BioCodeMessageMail extends Mailable
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct(Message $message)
     {
         $this->message = $message;
     }
