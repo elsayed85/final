@@ -6,5 +6,9 @@
  --}}
 
  @php
-    isset($message) ? echo $message , "not found";
+    if(isset($message)){
+        var_dump($message);
+    }else{
+        echo "not found";
+    }
  @endphp
