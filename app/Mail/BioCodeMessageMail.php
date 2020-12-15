@@ -33,6 +33,6 @@ class BioCodeMessageMail extends Mailable
     public function build()
     {
         Log::info($this->message);
-        return $this->view('biocodeMail');
+        return $this->view('biocodeMail')->with("message" , $this->message);
     }
 }
