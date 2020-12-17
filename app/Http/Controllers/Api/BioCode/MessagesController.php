@@ -17,14 +17,14 @@ class MessagesController extends Controller
             'name' => ['required', 'min:3', 'max:40'],
             'email' => ['required', 'email', 'max:60', 'unique:bio_code_users,email'],
             'phone' => ['required', 'min:10', 'max:30', 'unique:bio_code_users,phone'],
-            'from_mansoura_university' => ['required' , 'boolean'],
+            'from_mansoura_university' => ['nullable' , 'boolean'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' =>  $request->email,
             'phone' => $request->phone,
-            'from_mansoura_university' => $request->from_mansoura_university,
+            'from_mansoura_university' => $request->from_mansoura_university ?? false,
         ]);
 
         try {
