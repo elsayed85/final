@@ -2,9 +2,9 @@
 # Ticket #{{ $user->id }}
 
 @component('mail::table')
-| Name       | Email         |  Phone   |   Ticket Price   |
+| Name       | Phone     |   Ticket Price   |
 | ------------- |:-------------:| --------:|
-| {{ $user->name }}     | {{ $user->email }}      | {{ $user->phone }}    |   {{ $user->ticket_price }}
+| {{ $user->name }}     |   {{ $user->phone }}    |   {{ $user->ticket_price }}
 @endcomponent
 
 @if(!$user->from_mansoura_university)
