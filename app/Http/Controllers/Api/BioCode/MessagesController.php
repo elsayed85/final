@@ -25,6 +25,8 @@ class MessagesController extends Controller
         if(!$request->has("from_mansoura_university"))
         {
             $request->request->add(['from_mansoura_university' => false]);
+        }else{
+            $request->request->add(['from_mansoura_university' => true]);
         }
 
         return $request->all();
