@@ -22,6 +22,13 @@ class MessagesController extends Controller
             'from_mansoura_university' => ['nullable' , 'boolean'],
         ]);
 
+        if(!$request->has("from_mansoura_university"))
+        {
+            $request->from_mansoura_university = false;
+        }
+
+        return $request->all();
+
         $usersFromMansoura = User::where('from_mansoura_university' , true)->count();
 
         $userNotFromMansoura = User::where('from_mansoura_university' , false)->count();
@@ -42,7 +49,7 @@ class MessagesController extends Controller
             'name' => $request->name,
             'email' =>  $request->email,
             'phone' => $request->phone,
-            'from_mansoura_university' => $request->from_mansoura_university ?? false,
+            'from_mansoura_university' => $request->from_mansoura_university,
         ]);
 
         try {
