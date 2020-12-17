@@ -32,6 +32,6 @@ class BioCodeUserMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('biocode.mail' , ['user' => $user]);
+        return $this->markdown('biocode.mail' , ['user' => $this->user]);
     }
 }
