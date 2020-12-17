@@ -8,7 +8,7 @@
 @endcomponent
 
 @component('mail::panel')
-<p>Event Location : ITI - Information Technology Institute (Mansoura University)</p>
+<p>Event Location : ITI (Mansoura University)</p>
 
 @component('mail::button' , ['url' => "https://goo.gl/maps/dhucjAoNDr2oiGHy7"])
 open in google map
