@@ -1,5 +1,5 @@
 @component('mail::message')
-# Ticket #{{ $user->id }}
+# Your Ticket is  <b style="color: red">{{ $user->id }}</b>
 
 @component('mail::table')
 | Name | Phone | Ticket Price |
@@ -7,7 +7,6 @@
 | {{ $user->name }} | {{ $user->phone }} | {{ $user->ticket_price }}
 @endcomponent
 
-@if(!$user->from_mansoura_university)
 @component('mail::panel')
 <p>Event Location : ITI - Information Technology Institute (Mansoura University)</p>
 
@@ -16,20 +15,22 @@ open in google map
 @endcomponent
 
 <hr>
+
 <time>
     <span>DEC 23 – DEC 24</span>
+    <br>
     <span>10:00 AM to 04:30 PM</span>
 </time>
-<hr>
 
+@if(!$user->from_mansoura_university)
+<hr>
 <p>
     You can Pay via vodafone cash <br>
     phone number : <b>123456789</b>
 </p>
+@endif
 
 @endcomponent
-
-@endif
 
 Thanks,<br>
 Bio Code Team
