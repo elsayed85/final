@@ -29,8 +29,6 @@ class MessagesController extends Controller
             $request->request->add(['from_mansoura_university' => true]);
         }
 
-        return $request->all();
-
         //User::where('from_mansoura_university' , true)->count()
         $usersFromMansoura = 100;
 
