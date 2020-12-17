@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\BioCode;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendBioCodeUserEmailJob;
 use App\Mail\BioCodeUserMail;
 use App\Models\BioCode\User;
 use Exception;
@@ -55,7 +56,7 @@ class MessagesController extends Controller
         ]);
 
         try {
-            Mail::to($request->email)->send(new BioCodeUserMail($user));
+            dispatch(new SendBioCodeUserEmailJob($user));
             $emailSent = true;
         } catch (Exception $e) {
             //
