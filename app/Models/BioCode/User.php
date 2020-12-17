@@ -4,18 +4,23 @@ namespace App\Models\BioCode;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class User extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'bio_code_messages';
+    protected $table = 'bio_code_users';
     /**
      * The attributes that aren't mass assignable.
      *
      * @var array
      */
     protected $guarded = [];
+
+    public function getTicketPriceAttribute()
+    {
+        return $this->from_mansoura_university ? "Free" : "40 EGP";
+    }
 }

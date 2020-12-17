@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\SendPositionEvent;
 use App\Http\Controllers\Api\BioCode\MessagesController;
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
@@ -12,11 +13,22 @@ use App\Http\Controllers\Api\V1\User\AvatarController;
 use App\Http\Controllers\Api\V1\User\BansController;
 use App\Http\Controllers\Api\V1\User\LogoutController;
 use App\Http\Controllers\Api\V1\User\StatusController;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
     Route::get('test', function () {
         return "hi ardino";
+    });
+
+    Route::get('send', function () {
+        $location = ['lat' => 1234 , 'lang' => 789456];
+
+        event(new SendPositionEvent($location));
+
+        Log::info('okay');
+
+        return response()->json($location);
     });
 });
 

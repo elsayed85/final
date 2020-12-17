@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBioCodeMessagesTable extends Migration
+class CreateBioCodeUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateBioCodeMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bio_code_messages', function (Blueprint $table) {
+        Schema::create('bio_code_users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->unique()->nullable();
-            $table->longText('message')->nullable();
-            $table->json('sessions');
+            $table->string('phone')->unique();
+            $table->boolean('from_mansoura_university')->default(false);
             $table->timestamps();
         });
-        \DB::statement('ALTER TABLE bio_code_messages AUTO_INCREMENT = 400;');
+
+        \DB::statement('ALTER TABLE bio_code_users AUTO_INCREMENT = 400;');
     }
 
     /**
@@ -32,6 +32,6 @@ class CreateBioCodeMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bio_code_messages');
+        Schema::dropIfExists('bio_code_users');
     }
 }
