@@ -30,11 +30,8 @@ class MessagesController extends Controller
             $request->request->add(['from_mansoura_university' => true]);
         }
 
-        //User::where('from_mansoura_university' , true)->count()
-        $usersFromMansoura = 100;
-
-        //User::where('from_mansoura_university' , false)->count()
-        $userNotFromMansoura = 20;
+        $usersFromMansoura = User::where('from_mansoura_university' , true)->count();
+        $userNotFromMansoura = User::where('from_mansoura_university' , false)->count();
 
         if($request->from_mansoura_university && $usersFromMansoura >= 100){
             return response()->json([
@@ -89,7 +86,7 @@ class MessagesController extends Controller
     public function getAllMessages()
     {
         return response()->json([
-            'messages' => Message::latest()->paginate(10)
+            'users' => User::latest()->get()
         ]);
     }
 }
