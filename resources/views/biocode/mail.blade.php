@@ -11,7 +11,7 @@
 @component('mail::panel')
 <p>Event Location : ITI - Information Technology Institute (Mansoura University)</p>
 
-@component('mail:button' , ['url' => "https://goo.gl/maps/dhucjAoNDr2oiGHy7"])
+@component('mail::button' , ['url' => "https://goo.gl/maps/dhucjAoNDr2oiGHy7"])
 open in google map
 @endcomponent
 
