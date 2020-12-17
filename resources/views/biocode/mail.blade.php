@@ -21,6 +21,7 @@ Event Location : ITI - Information Technology Institute (Mansoura University)
     phone number : 123456789
 </p>
 @endcomponent
+
 @endif
 
 Thanks,<br>
