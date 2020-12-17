@@ -31,9 +31,11 @@ class MessagesController extends Controller
 
         return $request->all();
 
-        $usersFromMansoura = User::where('from_mansoura_university' , true)->count();
+        //User::where('from_mansoura_university' , true)->count()
+        $usersFromMansoura = 100;
 
-        $userNotFromMansoura = User::where('from_mansoura_university' , false)->count();
+        //User::where('from_mansoura_university' , false)->count()
+        $userNotFromMansoura = 20;
 
         if($request->from_mansoura_university && $usersFromMansoura >= 100){
             return response()->json([
