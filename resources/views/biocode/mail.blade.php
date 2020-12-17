@@ -1,5 +1,5 @@
 @component('mail::message')
-# Your Ticket is  <b style="color: red">{{ $user->id }}</b>
+# Your Ticket Id is  <b style="color: red">{{ $user->id }}</b>
 
 @component('mail::table')
 | Name | Phone | Ticket Price |
