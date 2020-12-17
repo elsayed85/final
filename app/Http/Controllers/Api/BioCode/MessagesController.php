@@ -75,7 +75,7 @@ class MessagesController extends Controller
         }else{
             return response()->json([
                 'success' => true,
-                'message' => "تم التسجيل بنجاح و يرجاء الاحتفاظ برقم التذكره",
+                'message' => "تم التسجيل بنجاح وبرجاء الاحتفاظ برقم التذكره",
                 'ticket' => [
                     'id' => $user->id,
                     'paid' => !$user->from_mansoura_university,
