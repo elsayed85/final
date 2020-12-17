@@ -59,7 +59,7 @@ class MessagesController extends Controller
                 'message' => "لقد تم إرسال رسالة على بريدك الالكتروني  تحتوي على معلومات التسجيل ورقم التذكره ",
                 'ticket' => [
                     'id' => $user->id,
-                    'paid' => $user->from_mansoura_university,
+                    'paid' => !$user->from_mansoura_university,
                     'price' => $user->ticket_price
                 ]
             ]);
@@ -69,7 +69,7 @@ class MessagesController extends Controller
                 'message' => "تم التسجيل بنجاح و يرجاء الاحتفاظ برقم التذكره",
                 'ticket' => [
                     'id' => $user->id,
-                    'paid' => $user->from_mansoura_university,
+                    'paid' => !$user->from_mansoura_university,
                     'price' => $user->ticket_price
                 ]
             ]);
