@@ -33,7 +33,7 @@ class MessagesController extends Controller
         $usersFromMansoura = User::where('from_mansoura_university' , true)->count();
         $userNotFromMansoura = User::where('from_mansoura_university' , false)->count();
 
-        if($request->from_mansoura_university && $usersFromMansoura >= 100){
+        /* if($request->from_mansoura_university && $usersFromMansoura >= 100){
             return response()->json([
                 'success' => false,
                 'message' => "لقد تم إغلاق الحجز لطلاب جامعه المنصوره لإكتمال العدد"
@@ -43,7 +43,7 @@ class MessagesController extends Controller
                 'success' => false,
                 'message' => "لقد تم إغلاق الحجز لمن هم خارج جامعه المنصوره لإكتمال العدد"
             ]);
-        }
+        } */
 
         $user = User::create([
             'name' => $request->name,
