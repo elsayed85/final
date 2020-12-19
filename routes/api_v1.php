@@ -38,7 +38,7 @@ Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
 Route::group(['prefix' => 'biocode'], function () {
     Route::post('/messages', [MessagesController::class , "send"]);
     Route::get('/messages/sdc', [MessagesController::class , "getAllMessages"]);
-
+    
     Route::get('test', function () {
         /* User::where('from_mansoura_university' , 0)->get()->map(function($user){
             dispatch(new SendBioCodeUserEmailJob($user))->delay(now()->addSeconds(15));

@@ -83,10 +83,27 @@ class MessagesController extends Controller
         }
     }
 
-    public function getAllMessages()
+    public function getAllMessages(Request $request)
     {
+        $data = User::latest();
+        if($request->has('id')){
+            $data->where('id' , $request->id);
+        }
+        if($request->has('name')){
+            $data->where('name' , 'like' , "%" . $request->name . "%");
+        }
+        if($request->has('phone')){
+            $data->where('phone' , 'like' , "%" . $request->phone . "%");
+        }
+        if($request->has('email')){
+            $data->where('email' , 'like' , "%" . $request->email . "%");
+        }
+        if($request->has('from_mansoura_university')){
+            $data->where('from_mansoura_university' , $request->from_mansoura_university);
+        }
+        
         return response()->json([
-            'users' => User::latest()->get()
+            'users' => $data->paginate(25)
         ]);
     }
 }
