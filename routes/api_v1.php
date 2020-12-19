@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\V1\User\AvatarController;
 use App\Http\Controllers\Api\V1\User\BansController;
 use App\Http\Controllers\Api\V1\User\LogoutController;
 use App\Http\Controllers\Api\V1\User\StatusController;
+use App\Models\BioCode\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,11 @@ Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
 Route::group(['prefix' => 'biocode'], function () {
     Route::post('/messages', [MessagesController::class , "send"]);
     Route::get('/messages/sdc', [MessagesController::class , "getAllMessages"]);
+
+    Route::get('test', function () {
+        $users = User::where('id' , "<=" , 756)->where('from_mansoura_university' , 0)->get();
+        return $users;
+    });
 });
 
 

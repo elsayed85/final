@@ -25,8 +25,14 @@ open in google map
 @if(!$user->from_mansoura_university)
 <hr>
 <p>
-    You can Pay via vodafone cash <br>
-    phone number : <b>123456789</b>
+    You can Pay via vodafone cash to this number <br>
+    phone number : <b>+20 103 066 9524</b><br>
+    send screenshot of payment to our page <a href="https://www.facebook.com/BioCodeMansoura/">https://www.facebook.com/BioCodeMansoura/</a> or attach it to this email <b><a href="mailto:codebio2019@gmail.com">codebio2019@gmail.com</a></b>
+</p>
+<hr>
+<p style="color: red">
+    Do not forget the ID card to enter the university <br>
+    لا تنسي البطاقة الشخصية لاتخاذ إجراءات الدخول للجامعه
 </p>
 @endif
 
