@@ -101,9 +101,9 @@ class MessagesController extends Controller
         if($request->has('from_mansoura_university')){
             $data->where('from_mansoura_university' , $request->from_mansoura_university);
         }
-        
+
         return response()->json([
-            'users' => $data->paginate(25)
+            'users' => $request->has("all") ? $data->get() : $data->paginate(25)
         ]);
     }
 }
