@@ -31,7 +31,6 @@ open in google map
 </p>
 <hr>
 <p style="color: red">
-    Do not forget the ID card to enter the university <br>
     لا تنسي البطاقة الشخصية لاتخاذ إجراءات الدخول للجامعه
 </p>
 @endif
