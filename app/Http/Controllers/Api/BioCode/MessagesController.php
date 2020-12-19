@@ -105,5 +105,6 @@ class MessagesController extends Controller
         return response()->json([
             'users' => $request->has("all") ? $data->get() : $data->paginate(25)
         ]);
+        
     }
 }
