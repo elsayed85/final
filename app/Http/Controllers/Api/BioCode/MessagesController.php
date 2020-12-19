@@ -44,13 +44,6 @@ class MessagesController extends Controller
                 'message' => "لقد تم إغلاق الحجز لمن هم خارج جامعه المنصوره لإكتمال العدد"
             ]);
         } */
-        
-        if(!$request->from_mansoura_university && $userNotFromMansoura >= 80){
-            return response()->json([
-                'success' => false,
-                'message' => "لقد تم إغلاق الحجز لمن هم خارج جامعه المنصوره لإكتمال العدد"
-            ]);
-        }
 
         $user = User::create([
             'name' => $request->name,
