@@ -1,0 +1,14 @@
+[2020-12-20 05:04:04] local.ERROR: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aa_final_project.bio_code_users' doesn't exist in /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php:331
+Stack trace:
+#0 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(331): PDO->prepare('select * from `...')
+#1 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(664): Illuminate\Database\Connection->Illuminate\Database\{closure}('select * from `...', Array)
+#2 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(631): Illuminate\Database\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
+#3 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(339): Illuminate\Database\Connection->run('select * from `. {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'aa_final_project.bio_code_users' doesn't exist in /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php:331
+Stack trace:
+#0 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(331): PDO->prepare('select * from `...')
+#1 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(664): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select * from `...', Array)
+#2 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(631): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
+#3 /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php(339): Illuminate\\Database\\Connection->run('select * from `. at /Volumes/PMAC/mine/mywork/backend/projects/final/vendor/laravel/framework/src/Illuminate/Database/Connection.php:671)
+[stacktrace]
+#0 {main}
+"} 

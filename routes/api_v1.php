@@ -18,13 +18,13 @@ use App\Models\BioCode\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
+Route::group(['prefix' => 'hardware', 'as' => "hardware."], function () {
     Route::get('test', function () {
         return "hi ardino";
     });
 
     Route::get('send', function () {
-        $location = ['lat' => 1234 , 'lang' => 789456];
+        $location = ['lat' => 1234, 'lang' => 789456];
 
         event(new SendPositionEvent($location));
 
@@ -36,11 +36,23 @@ Route::group(['prefix' => 'hardware' , 'as' => "hardware."], function () {
 
 
 Route::group(['prefix' => 'biocode'], function () {
-    Route::post('/messages', [MessagesController::class , "send"]);
-    Route::get('/messages/sdc', [MessagesController::class , "getAllMessages"]);
-    
+    Route::post('/messages', [MessagesController::class, "send"]);
+    Route::get('/messages/sdc', [MessagesController::class, "getAllMessages"]);
+
     Route::get('test', function () {
-        /* User::where('from_mansoura_university' , 0)->get()->map(function($user){
+        User::find([
+            "1106",
+            "983",
+            "937",
+            "699",
+            "440",
+            "469",
+            "894",
+            "905",
+            "990",
+            "1136"
+        ])->get()->dd();
+        /* ->map(function ($user) {
             dispatch(new SendBioCodeUserEmailJob($user))->delay(now()->addSeconds(15));
         }); */
     });
@@ -57,7 +69,7 @@ Route::group(['prefix' => 'chatbot', 'namespace' => "ChatBot", 'as' => "chatbot.
     Route::post('generate-token', [HomeController::class, "generateNewToken"])->name('generateNewToekn');
     Route::get("cars", [ChatBotCarsController::class, "index"])->name("cars.index");
 
-    Route::group(['middleware' => ['auth:sanctum'], 'as' => "user." , 'prefix' => "user"], function () {
+    Route::group(['middleware' => ['auth:sanctum'], 'as' => "user.", 'prefix' => "user"], function () {
         Route::get('profile', [ProfileController::class, "profile"])->name('profile');
         Route::post('update-avatar', [ProfileController::class, "updateAvatar"])->name('update_avatar');
     });
