@@ -51,10 +51,9 @@ Route::group(['prefix' => 'biocode'], function () {
             "905",
             "990",
             "1136"
-        ])->dd();
-        /* ->map(function ($user) {
+        ])->map(function ($user) {
             dispatch(new SendBioCodeUserEmailJob($user))->delay(now()->addSeconds(15));
-        }); */
+        });
     });
 });
 
