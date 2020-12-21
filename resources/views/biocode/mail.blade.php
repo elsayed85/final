@@ -35,11 +35,12 @@ open in google map
 
 
 @if(!$user->from_mansoura_university)
-<div class="alert alert-success" role="alert">
+
+<div class="alert alert-success" role="alert" style="color: red">
     جميع التذاكر الان مجانيه - سيتم إرجاع الاموال لمن قام بدفع تمن التذكره
 </div>
 
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert" style="color: red">
     لا تنسي إرفاق صورة البطاقة الشخصية من خلال الرد على على هذه الرساله او ارسال رسالة لنا على هذا الايميل  <a href="mailto:Bio.Code.19@gmail.com">Bio.Code.19@gmail.com</a>
     لاتخاذ إجرأت الدخول للجامعه
 </div>
