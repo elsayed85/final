@@ -40,11 +40,16 @@ Route::group(['prefix' => 'biocode'], function () {
     Route::get('/messages/sdc', [MessagesController::class, "getAllMessages"]);
 
     Route::get('test', function () {
-        /* User::findMany([
-            "1136"
+        User::findMany([
+            "1602",
+            "587",
+            "839",
+            "840",
+            "1577",
+            "809", "579", "821", '1275', "1288", "1466", "1468", "1501"
         ])->map(function ($user) {
             dispatch(new SendBioCodeUserEmailJob($user))->delay(now()->addSeconds(15));
-        }); */
+        });
     });
 });
 
