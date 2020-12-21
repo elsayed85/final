@@ -20,18 +20,10 @@ class MessagesController extends Controller
             'name' => ['required', 'min:3', 'max:40'],
             'email' => ['required', 'email', 'max:60', 'unique:bio_code_users,email'],
             'phone' => ['required', 'min:10', 'max:30', 'unique:bio_code_users,phone'],
-            'from_mansoura_university' => ['nullable' , 'boolean'],
         ]);
 
-        if(!$request->has("from_mansoura_university"))
-        {
-            $request->request->add(['from_mansoura_university' => false]);
-        }else{
-            $request->request->add(['from_mansoura_university' => true]);
-        }
-
-        $usersFromMansoura = User::where('from_mansoura_university' , true)->count();
-        $userNotFromMansoura = User::where('from_mansoura_university' , false)->count();
+/*         $usersFromMansoura = User::where('from_mansoura_university' , true)->count();
+        $userNotFromMansoura = User::where('from_mansoura_university' , false)->count(); */
 
         /* if($request->from_mansoura_university && $usersFromMansoura >= 100){
             return response()->json([
@@ -49,7 +41,7 @@ class MessagesController extends Controller
             'name' => $request->name,
             'email' =>  $request->email,
             'phone' => $request->phone,
-            'from_mansoura_university' => $request->from_mansoura_university,
+            'from_mansoura_university' => true,
         ]);
 
         try {
@@ -86,6 +78,7 @@ class MessagesController extends Controller
     public function getAllMessages(Request $request)
     {
         $data = User::latest();
+        
         if($request->has('id')){
             $data->where('id' , $request->id);
         }
@@ -105,6 +98,6 @@ class MessagesController extends Controller
         return response()->json([
             'users' => $request->has("all") ? $data->get() : $data->paginate(25)
         ]);
-        
+
     }
 }
