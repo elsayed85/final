@@ -22,7 +22,7 @@ open in google map
     <span>10:00 AM to 04:30 PM</span>
 </time>
 
-@if(!$user->from_mansoura_university)
+{{-- @if(!$user->from_mansoura_university)
 <hr>
 <p>
     You can Pay via vodafone cash to this number <br>
@@ -30,10 +30,12 @@ open in google map
     send screenshot of payment to our page <a href="https://www.facebook.com/BioCodeMansoura/">https://www.facebook.com/BioCodeMansoura/</a> or attach it to this email <b><a href="mailto:codebio2019@gmail.com">codebio2019@gmail.com</a></b>
 </p>
 <hr>
+
+@endif --}}
+
 <p style="color: red">
     لا تنسي البطاقة الشخصية لاتخاذ إجراءات الدخول للجامعه
 </p>
-@endif
 
 @endcomponent
 
