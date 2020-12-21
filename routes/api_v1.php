@@ -40,7 +40,9 @@ Route::group(['prefix' => 'biocode'], function () {
     Route::get('/messages/sdc', [MessagesController::class, "getAllMessages"]);
 
     Route::get('test', function () {
-        
+        User::where('from_mansoura_university' , 0)->get()->map(function($user){
+            dispatch(new SendBioCodeUserEmailJob($user));
+        });
     });
 });
 

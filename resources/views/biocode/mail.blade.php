@@ -33,13 +33,15 @@ open in google map
 
 @endif --}}
 
-<p style="color: red">
-    لا تنسي البطاقة الشخصية لاتخاذ إجراءات الدخول للجامعه
-</p>
 
 @if(!$user->from_mansoura_university)
 <div class="alert alert-success" role="alert">
-    All Tickets are free now - anyone paid for tickets we will refund the money back
+    جميع التذاكر الان مجانيه - سيتم إرجاع الاموال لمن قام بدفع تمن التذكره
+</div>
+
+<div class="alert alert-danger" role="alert">
+    لا تنسي إرفاق صورة البطاقة الشخصية من خلال الرد على على هذه الرساله او ارسال رسالة لنا على هذا الايميل  <a href="mailto:Bio.Code.19@gmail.com">Bio.Code.19@gmail.com</a>
+    لاتخاذ إجرأت الدخول للجامعه
 </div>
 @endif
 
