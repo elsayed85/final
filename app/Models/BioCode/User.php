@@ -21,6 +21,6 @@ class User extends Model
 
     public function getTicketPriceAttribute()
     {
-        return $this->from_mansoura_university ? "Free" : "40 EGP";
+        return "Free";
     }
 }
