@@ -16,8 +16,10 @@ class SendBioCodeUserEmailJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $user;
-    
+
     public $deleteWhenMissingModels = true;
+    public $tries = 5;
+    public $timeout = 20;
 
 
     /**
