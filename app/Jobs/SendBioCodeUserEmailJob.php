@@ -18,7 +18,7 @@ class SendBioCodeUserEmailJob implements ShouldQueue
     public $user;
 
     public $deleteWhenMissingModels = true;
-    public $tries = 5;
+    public $tries = 3;
     public $timeout = 20;
 
 
