@@ -37,6 +37,12 @@ open in google map
     لا تنسي البطاقة الشخصية لاتخاذ إجراءات الدخول للجامعه
 </p>
 
+@if(!$user->from_mansoura_university)
+<div class="alert alert-success" role="alert">
+    All Tickets are free now - anyone paid for tickets we will refund the money back
+</div>
+@endif
+
 @endcomponent
 
 Thanks,<br>
